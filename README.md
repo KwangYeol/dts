@@ -1,4 +1,4 @@
-dts: Generate sequence of datatimes, like seq
+dts: Generate sequence of datetimes, like seq
 =============================================
 
 ## Sequece of dates
@@ -32,7 +32,7 @@ pip install dts
 ```
 
 
-## How to use
+## How to use: Simple
 
 ```bash
 $ dts -h
@@ -62,7 +62,7 @@ optional arguments:
 * `-f`: It has datetime format. See this (https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior)
 
 
-### Use cases
+## How to use: with Pipeline
 
 ```bash
 $ dts 20180401 20180430 -i d7
