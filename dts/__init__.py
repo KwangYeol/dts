@@ -17,11 +17,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+# package version
+__version__='0.1.1'
 
-# import dts.cli
-
-# # if __name__ == '__main__':
-# #   cli.main()
-
-# def main():
-#   cli.main()
+# package 
+__all__ = ['seq']

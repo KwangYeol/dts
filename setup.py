@@ -10,13 +10,16 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+with open(path.join(here, 'VERSION')) as version_file:
+    version = version_file.read().strip()
+
 setup(
     name='dts',  # Required
 
-    version='0.1.0',  # Required
+    version=version,  # Required
 
     description='Generate sequence of datatimes, like seq',  # Required
-    long_description='# Generate sequence of datatimes, like seq',  # README.md
+    long_description=long_description,  # README.md
     long_description_content_type='text/markdown', 
 
     url='https://github.com/KwangYeol/dts',
@@ -48,8 +51,9 @@ setup(
 
     keywords='seq datetime generator',
 
-    py_modules=["dts"],
+    # py_modules=["dts.cli"],
     # packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=['dts'],
 
     install_requires=[],
 
@@ -57,11 +61,11 @@ setup(
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # `pip` to create the appropriate form of executable for the target
     # platform.
-    scripts=['dts/cli.py'],
+    # scripts=['dts/cli'],
     entry_points={  # Optional
         'console_scripts': [
-            'dts=cli:main',
-        ],
+            'dts=dts.__main__:main',
+        ]
     },
 
     project_urls={  # Optional

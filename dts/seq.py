@@ -1,7 +1,6 @@
 from dateutil.parser import parse
 from datetime import timedelta
 
-
 # generator
 def _seqGen(first, last, t_delta, t_fmt):
     dt = first
