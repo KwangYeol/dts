@@ -7,17 +7,17 @@ DTS_DEFAULT_INTERVAL = 1
 DTS_DEFAULT_FORMAT = '%Y%m%d'
 
 # generator
-def _seqGen(first, last, t_delta, t_fmt):
-    dt = first
-    last_dt = last + t_delta
-    while last_dt > dt:
-        yield dt.strftime(t_fmt)
-        dt = dt + t_delta
-        if dt > last:
-          return
+def _seqGen(first: datetime, last: datetime, t_delta: timedelta, t_fmt: str):
+  dt = first
+  last_dt = last + t_delta
+  while last_dt > dt:
+    yield dt.strftime(t_fmt)
+    dt = dt + t_delta
+    if dt > last:
+      return
 
 # wrapper
-def seqGen(first, last, unit='d', how_long=1, fmt='%Y%m%d'):
+def seqGen(first: datetime, last: datetime, unit: str='d', how_long: int=1, fmt: str='%Y%m%d'):
   if unit not in DT_UNIT:
     raise ValueError("Incorrect unit. It should be 'h', 'd', or 'w'")
 
