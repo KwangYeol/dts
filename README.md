@@ -38,11 +38,25 @@ pip install dts
 $ dts -h
 usage: dts [-h] [-i INTERVAL] [-f FORMAT] FIRST LAST
 
-seq for datetime
+dts is a seq util for datetimes
+
+Examples:
+
+  $ dts 20180501 20180503
+  20180501
+  20180502
+  20180503
+
+  $ dts 20180501-0900 20180501-1200 -i h1 -f '%Y-%m-%dT%H:%M:%S'
+  2018-05-01T09:00:00
+  2018-05-01T10:00:00
+  2018-05-01T11:00:00
+  2018-05-01T12:00:00
+
+Github: https://github.com/KwangYeol/dts
 
 positional arguments:
-  FIRST                 first date of the seq. For example, 2018-05-01,
-                        20180501, 20180501-0900, 2018-05-01T09:00
+  FIRST                 first date of the seq. For example, 2018-05-01, 20180501, 20180501-0900, 2018-05-01T09:00
   LAST                  last date of the seq. See also, FIRST
 
 optional arguments:
@@ -107,7 +121,7 @@ $ dts 20180401 20180410 | xargs -I {} hadoop fs -ls /hive/warehouse/sales.db/cre
 
 ## Development
 
-
 python setup.py install
 python setup.py sdist 
 python setup.py sdist bdist bdist_wheel
+
