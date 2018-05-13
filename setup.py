@@ -50,13 +50,13 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.6'
     ],
 
     keywords='dts seq datetime generator',
 
     # py_modules=["dts.cli"],
-    packages=find_packages("dts", exclude=['tests']),  # Required
+    packages=find_packages(exclude=['tests', 'build', 'dist', 'dts.egg-info']),  # Required
 
     install_requires=[
         'python-dateutil'
@@ -71,12 +71,12 @@ setup(
     # scripts=['dts/cli'],
     entry_points={  # Optional
         'console_scripts': [
-            'dts=dts.__main__:main',
+            'dts=dts.__main__:main'
         ]
     },
 
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/KwangYeol/dts/issues',
-        'Source': 'https://github.com/KwangYeol/dts',
+        'Source': 'https://github.com/KwangYeol/dts'
     },
 )
