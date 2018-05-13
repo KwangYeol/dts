@@ -104,3 +104,10 @@ You can find the data size in some range with `dts`.
 $ dts 20180401 20180410 | xargs -I {} hadoop fs -ls /hive/warehouse/sales.db/credit/yyyymmdd={}
 ```
 
+
+## Development
+
+
+python setup.py install
+python setup.py sdist 
+python setup.py sdist bdist bdist_wheel

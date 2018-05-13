@@ -1,6 +1,7 @@
 import sys
 import argparse
 from dateutil.parser import parse
+from dts.seq import seqGen, DT_UNIT, DTS_DEFAULT_UNIT, DTS_DEFAULT_INTERVAL, DTS_DEFAULT_FORMAT
 
 def main(args=None):
     """The main routine."""
@@ -26,23 +27,20 @@ def main(args=None):
       print("invalid datetime format")
       sys.exit(1)
 
-    fmt = None
+    fmt = DTS_DEFAULT_FORMAT
     if args.format:
       fmt = args.format
 
-    unit = 'd'
-    how_long = 1
+    unit = DTS_DEFAULT_UNIT
+    how_long = DTS_DEFAULT_INTERVAL
 
-    if args.interval and len(args.interval) >= 2 and args.interval[0] in ['h', 'd', 'w']:
+    if args.interval and len(args.interval) >= 2 and args.interval[0] in DT_UNIT:
       unit = args.interval[0]
       how_long = int(args.interval[1:])
 
-    from dts.seq import seqGen
     hseq = seqGen(first, last, unit, how_long, fmt)
 
     for d in hseq:
-      if parse(d) > last:
-          continue
       print(d)
 
 if __name__ == "__main__":

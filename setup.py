@@ -13,6 +13,10 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 with open(path.join(here, 'VERSION')) as version_file:
     version = version_file.read().strip()
 
+extra_packages = {
+    'test': ['pytest']
+    }
+
 setup(
     name='dts',  # Required
 
@@ -49,13 +53,16 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    keywords='seq datetime generator',
+    keywords='dts seq datetime generator',
 
     # py_modules=["dts.cli"],
-    # packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
-    packages=['dts'],
+    packages=find_packages("dts", exclude=['tests']),  # Required
 
-    install_requires=[],
+    install_requires=[
+        'python-dateutil'
+    ],
+
+    # extras_require = extra_packages,
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
